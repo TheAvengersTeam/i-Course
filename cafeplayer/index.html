@@ -1,0 +1,377 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Educational Self-study Platform</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary JavaScript plugins) -->
+<script src="js/bootstrap.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="css/mycss/index_control.css" rel="stylesheet" type="text/css" />
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="University Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.min.js"></script>
+ <script src="js/bootstrap.js"></script>
+<script src="js/myjs/uploadPreview.js" type="text/javascript"></script>  <!-- for the image preview -->
+<script src="js/myjs/index_control.js" type="text/javascript"></script>  
+<script src="js/myjs/history.js"></script>
+<script src="js/myjs/json.js"></script>
+</head>
+<body>
+<!-- banner -->
+<script src="js/responsiveslides.min.js"></script>
+<script>  
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+  </script>  
+<div class="banner">	  
+	 <div class="header">
+			 <div class="logo">
+				 <a href="index.html"><img src="images/logo.jpg" alt=""/></a>
+			 </div>
+			 <div class="top-menu">
+				 <span class="menu"></span>
+				 <ul class="navig">
+					 <li class="active"><a href="index.html">Home</a></li>
+					 <li><a href="Video.html">Video</a></li>
+					 <li><a href="Analysis.html">Analysis</a></li>
+					 <li><a href="uploadFiles.html">Upload</a></li>
+					 <li><a href="infoCenter.html">Personal Information</a></li>
+					 <li><a href="Annotation.html">Annotation</a></li>
+				 </ul>
+			 </div>
+			  <!-- script-for-menu -->
+		 <script>
+				$("span.menu").click(function(){
+					$("ul.navig").slideToggle("slow" , function(){
+					});
+				});
+		 </script>
+		 <!-- script-for-menu -->
+
+			 <div class="clearfix"></div>
+	 </div>
+	 <div class="slider">
+		 <div class="caption">
+			 <div class="container">
+				  <div class="callbacks_container">
+					  <ul class="rslides" id="slider">
+						    <li><h3>Nam eget erat condimentum, gravida felis vel feugiat nisi</h3></li>
+							<li><h3>Quisque egestas mi tellus porta bibendum dignissim euismod.</h3></li>	
+							<li><h3>Aenean nec enim pharetra felis malesuada scelerisque eget at felis.</h3></li>	
+					  </ul>	
+						<div class="clearfix"></div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <div class="banner-grids">
+	  	<!--Login-->
+	  		<div id="loginBox" class=" container">
+	  			<div class="col-md-12 banner-grid">
+	  				<h3>Log In</h3>
+	  				<div class="banner-grid-sec">
+	  					 <div id="typeArea">
+							 <div id="imgBox" class="blg-pic">
+								 <img src="images/teacher.jpg" class="img-responsive" alt="">
+							 </div>
+							 <div id="centerBox" >
+							 	<form action="login" method="post" enctype="multipart/form-data">
+							 	<div class="loginInfo">
+									 <h4>Identity:</h4>
+									 <input name="tID" id="tID" value="Please input your ID."/>
+								 </div>
+								 <div class="loginInfo">
+								 	<h4>Password:</h4>
+									<input name="password" id="loginpwd" type="password" value="Please enter."/>
+								</div> 
+								
+								<div class="RegisterInfo">
+									<h4>Type:</h4>
+									<div class="radioGroup">
+										<input class="typer" name="type" id="type1" value="老师" type="radio"/><label>老师</label>
+										<input class="typer" name="type" id="type2" value="学生" type="radio"/><label>学生</label>
+									</div>
+								</div>
+								<input class="loginBtn" id="summit" type="button" value="Summit" onclick="login()"/>
+							 	</form>
+							</div>
+							 <div class="clearfix"></div>
+							 <div id="toRegister"><a href="#" onclick="showRegisterBox()">Without Account?</a> </div>
+					 	</div>
+	  				</div>
+	  			</div>
+	  			<ul id="history">
+</ul>
+<script> 
+addHistory(15810782304,2);
+addHistory(64654665,2);
+addHistory(6843212,2);
+addHistory(84984432521,2);
+setInterval("DisplayHistory()",1000);
+</script>
+	  		</div>
+	  	
+	  	<!--Registerend-->
+	  		<div id="RegisterBox" class=" container">
+	  			<div class="col-md-12 banner-grid">
+	  				<h3>Register</h3>
+	  				<div class="banner-grid-sec">
+	  					 <div id="typeArea">
+							 <div id="imgBox2" class="blg-pic">
+								 <img id="headImg" src="" class="img-responsive" alt="">
+							 </div>
+							 <div id="centerBox" >
+							 	<form id="registerForm" action="register.php" method="post" enctype="multipart/form-data">		
+							 		<div class="selectBox">
+							 			<div class="browseImg">Browse</div>
+							 			<input id="imgSelected" type="file" name="file" style="margin: 0 auto;" />
+							 		</div> 
+							 	<div class="RegisterInfo">
+									 <h4>Name:</h4>
+									 <input name="name" id="name" />
+								 </div>
+								 <div class="RegisterInfo">
+								 	<h4>Password:</h4>
+									<input name="rpassword" id="password" type="password"/>
+								</div> 
+								<div class="RegisterInfo">
+									<h4>Sex:</h4>
+									<div class="radioGroup">
+										<input name="sex" id="sex1" value="男" type="radio"/><p>男</p>
+										<input name="sex" id="sex2" value="女" type="radio"/><p>女</p>
+									</div>
+								</div>
+								<input class="registerBtn" id="Resummit" type="submit"  value="Summit" />
+								</form>
+							</div>
+							 <div class="clearfix"></div>
+					 	</div>
+	  				</div>
+	  			</div>
+	  		</div>
+		  <div id="items" class="container">
+			 <div class="col-md-4 banner-grid">
+				 <h3>Blog Feed</h3>
+				 <div class="banner-grid-sec">
+					 <div class="grid_info">
+						 <div class="blg-pic">
+							 <img src="images/m1.jpg" class="img-responsive" alt="">
+						 </div>
+						 <div class="blg-pic-info">
+							 <h4><a href="#">Vivamus tempus ligula</a></h4>
+							 <p>Aliquam sem velit, rhoncus sed arcu at curabitur et erat eu viverra.</p>
+						 </div>
+						 <div class="clearfix"></div>
+					 </div>
+					 <div class="grid_info">
+						 <div class="blg-pic">
+							 <img src="images/m2.jpg" class="img-responsive" alt="">
+						 </div>
+						 <div class="blg-pic-info">
+							 <h4><a href="#">Vivamus tempus ligula</a></h4>
+							 <p>Aliquam sem velit, rhoncus sed arcu at curabitur et erat eu viverra.</p>
+						 </div>
+						 <div class="clearfix"></div>
+					 </div>
+					 <div class="more">
+						 <a href="blog.html">See more from the Blog ></a>
+					 </div>
+				 </div>
+			 </div>
+			 <div  class="col-md-4 banner-grid">
+				 <h3>News Feed</h3>
+				 <div class="banner-grid-sec">
+					 <div class="news-grid">
+						 <h4><a href="#">Vivamus tempus ligula</a></h4>
+						 <p>Aliquam sem velit, rhoncus sed arcu eu viverra.</p>
+					 </div>
+					 <div class="news-grid">
+						 <h4><a href="#">Vivamus tempus ligula</a></h4>
+						 <p>Aliquam sem velit, rhoncus sed arcu eu viverra.</p>
+					 </div>
+					 <div class="news-grid">
+						 <h4><a href="#">Vivamus tempus ligula</a></h4>
+						 <p>Aliquam sem velit, rhoncus sed arcu eu viverra.</p>
+					 </div>
+					 <div class="news-grid">
+						 <h4><a href="#">Vivamus tempus ligula</a></h4>
+						 <p>Aliquam sem velit, rhoncus sed arcu eu viverra.</p>
+					 </div>
+				 </div>
+			 </div>
+			 <div  class="col-md-4 banner-grid">
+				 <h3>News Letter</h3>
+				 <div class="banner-grid-sec news_sec">
+					 <div class="news-ltr">
+						 <h4><a href="#">Pellentesque sed arcu lacinia</a></h4>
+						 <p>Aliquam sem velit, rhoncus sed arcu eu viverra. Suspendisse lacus posuere ultricies turpis.</p>
+					 </div>
+					 <form>
+						 <input type="text" placeholder="Email Address*" required="">
+						 <input type="submit" value="SEND">
+					 </form>
+				 </div>
+			 </div>
+			 <div  class="clearfix"></div>
+		  </div>
+	
+	  </div>
+</div>
+<!---->
+<div class="welcome">
+	 <div class="container">
+		 <h2>Duis aliquet in ex nec elementum. In commodo molestie libero ornare elementum.</h2>
+		 <div class="welcm_sec">
+			 <div class="col-md-9 campus">
+				 <div class="campus_head">
+					 <h3>Welcome</h3>
+					 <p>Nunc justo sapien, cursus at urna at, placerat porttitor tellus. Aliquam vehicula tellus nunc,
+					 id pretium lacus placerat dignissim. Donec quis dui sed lacus vulputate scelerisque a sit amet neque.</p>
+				 </div>
+				 <div class="col-md-3 wel_grid">
+					 <img src="images/w1.jpg" class="img-responsive" alt=""/>
+					 <h5><a href="#">Aliquam sit amet</a></h5>
+					 <p>Morbi molestie nec ante ultrices. Cum sociis natoque penatibus et magnis dis parturient</p>
+				 </div>
+				 <div class="col-md-3 wel_grid">
+					 <img src="images/w3.jpg" class="img-responsive" alt=""/>
+					 <h5><a href="#">Aliquam sit amet</a></h5>
+					 <p>Morbi molestie nec ante ultrices. Cum sociis natoque penatibus et magnis dis parturient</p>
+				 </div>
+				 <div class="col-md-3 wel_grid">
+					 <img src="images/w2.jpg" class="img-responsive" alt=""/>
+					 <h5><a href="#">Aliquam sit amet</a></h5>
+					 <p>Morbi molestie nec ante ultrices. Cum sociis natoque penatibus et magnis dis parturient</p>
+				 </div>
+				 <div class="col-md-3 wel_grid">
+					 <img src="images/w4.jpg" class="img-responsive" alt=""/>
+					 <h5><a href="#">Aliquam sit amet</a></h5>
+					 <p>Morbi molestie nec ante ultrices. Cum sociis natoque penatibus et magnis dis parturient</p>
+				 </div>
+				 <div class="clearfix"></div>
+				 <div class="more_info">
+						 <a href="blog.html">More Info....</a>
+				 </div>
+			 </div>
+			 <div class="col-md-3 testimonal">
+					<h3>Testimonials</h3>
+					<div class="testimnl-grid">
+						 <a href="#"><p>Aenean ultrices commodo risus, id sollicitudin nunc commodo at. Sed sagittis, lacus id viverra eleifend, enim magna.</p></a>
+						 <h5>John.Mr</h5>
+					</div>
+					<div class="testimnl-grid">
+						 <a href="#"><p>Aenean ultrices commodo risus, id sollicitudin nunc commodo at. Sed sagittis, lacus id viverra eleifend, enim magna.</p></a>
+						 <h5>John.Mr</h5>
+					</div>
+					<div class="testimnl-grid">
+						 <a href="#"><p>Aenean ultrices commodo risus, id sollicitudin nunc commodo at. Sed sagittis, lacus id viverra eleifend, enim magna.</p></a>
+						 <h5>John.Mr</h5>
+					</div>
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>
+	 </div>
+</div>
+<!---->
+<div class="news">
+	 <div class="container">
+		 <h3>Top News</h3>
+		  <div class="event-grids">			
+		     <div class="col-md-4 event-grid">
+				 <div class="date">
+				     <h4>26</h4>
+					 <span>08/2012</span>
+				 </div>				 
+			     <div class="event-info">
+					  <h5><a href="#">Etiam malesuada feugiat rutrum purus quis vulputate.</a></h5>
+						<p>Praesent sagittis in enim vel cursus. Aenean velit ante, maximus ac placerat at, 
+						volutpat et orci. Aliquam eu tellus orci.</p>					
+				 </div>
+				 <div class="clearfix"></div>				 			 
+			 </div>
+			 <div class="col-md-4 event-grid">
+				 <div class="date">
+				     <h4>24</h4>
+					 <span>06/2012</span>
+				 </div>				 
+			     <div class="event-info">
+					  <h5><a href="#">Etiam malesuada feugiat rutrum purus quis vulputate.</a></h5>
+						<p>Praesent sagittis in enim vel cursus. Aenean velit ante, maximus ac placerat at, 
+						volutpat et orci. Aliquam eu tellus orci.</p>					
+				 </div>
+				 <div class="clearfix"></div>				 			 
+			 </div>
+			 <div class="col-md-4 event-grid">
+				 <div class="date">
+				     <h4>20</h4>
+					 <span>04/2012</span>
+				 </div>				 
+			     <div class="event-info">
+					  <h5><a href="#">Etiam malesuada feugiat rutrum purus quis vulputate.</a></h5>
+						<p>Praesent sagittis in enim vel cursus. Aenean velit ante, maximus ac placerat at, 
+						volutpat et orci. Aliquam eu tellus orci.</p>					
+				 </div>
+				 <div class="clearfix"></div>				 			 
+			 </div>
+			 <div class="clearfix"></div>	
+		 </div>
+	 </div>
+</div>
+<!---->
+<div class="footer">
+	 <div class="container">
+		 <div class="ftr-sec">
+			 <div class="col-md-4 ftr-grid">
+				 <h3>Text Module</h3>
+				 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut odio ut quam convallis ultricies. Morbi rutrum lectus tortor. Cras vitae semper mi, et feugiat dolor.</p>
+				 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut odio ut quam convallis ultricies. Morbi rutrum lectus tortor. Cras vitae semper mi, et feugiat dolor.</p>
+			 </div>
+			 <div class="col-md-4 ftr-grid2">
+				 <h3>Pages</h3>
+				 <ul>
+					 <li><a href="index.html"><span></span>Home</a></li>
+					 <li><a href="about.html"><span></span>About</a></li>
+					 <li><a href="program.html"><span></span>Programs</a></li>
+					 <li><a href="blog.html"><span></span>Blog</a></li>	
+					 <li><a href="gallery.html"><span></span>Gallery</a></li>
+					 <li><a href="contact.html"><span></span>Contact</a></li>
+				 </ul>
+			 </div>
+			 <div class="col-md-4 ftr-grid3">
+				 <h3>Quick links</h3>
+				 <ul>
+					 <li><a href="about.html"><span></span>History</a></li>
+					 <li><a href="about.html"><span></span>Departments</a></li>
+					 <li><a href="gallery.html"><span></span>Services</a></li>
+					 <li><a href="blog.html"><span></span>Guidancs</a></li>	
+					 <li><a href="about.html"><span></span>Team</a></li>
+					 <li><a href="contact.html"><span></span>Contact</a></li>
+				 </ul>
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>
+	 </div>
+</div>
+<!---->
+<div class="copywrite">
+	 <div class="container">
+	 	
+	 </div>
+</div>
+<!---->
+</body>
+</html>

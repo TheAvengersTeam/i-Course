@@ -1,0 +1,312 @@
+/*#content{
+	opacity: 0;
+}*/
+.grid_box{
+}
+#typeArea {
+	margin:  0 auto;
+	text-align: center;
+}
+#imgBox{
+	float: none;
+	margin: 10px auto;
+	width: 74px;
+}
+#imgBox2{
+	float: none;
+	margin: 10px auto;
+	width: 74px;
+}
+#headImg{
+	min-width: 70px;
+	min-height: 70px;
+	height: auto;
+	width: auto;
+}
+#centerBox{
+	text-align: center;
+	margin: 5px auto;
+	width: 265px;
+}
+#centerBox2{
+	width: 400px;
+	text-align: center;
+	margin: 5px auto;
+}
+.loginInfo,.RegisterInfo,.InfoCenter,.uploadfile{
+	display: inline-flex;
+	display: -webkit-inline-flex;
+	align-items: center;
+	/*justify-content: space-between;*/
+	-webkit-align-items: center;
+	margin: 20px auto;
+	width: 265px;
+}
+.loginInfo h4,.RegisterInfo h4,.InfoCenter h4,.uploadfile h4{
+	margin: 0;
+	padding: 0;
+	color: #4dc47d;
+    text-decoration: none;
+    font-family: 'Ubuntu-Medium';
+    float: left;
+}
+.loginInfo input{
+	float: right;
+	margin-left: 15px;
+}
+#summit,#Resummit{
+	outline: none;
+	padding: 10px 43px;
+	width: auto;
+    margin-top: 20px;
+    border: 2px solid #4dc47d;
+    color: #ffffff;
+    font-size: 1em;
+    background: #4dc47d;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+#summit:hover,#Resummit:hover{
+	background: #FFFFFF;
+	color: #4dc47d;
+}
+#toRegister{
+	font-size: 12px;
+	margin-left: 80%;
+}
+.selectBox{
+	position: relative;
+}
+#imgSelected{
+	top: 0;
+	left: 100px;
+	position: absolute;
+}
+#imgSelected,.selFile{
+	margin: 0 auto;
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+.selFile{
+	position: absolute;
+	top: 10px;
+	left: 0px;
+}
+#imgSelected:hover,
+.selFile:hover{
+	cursor: pointer;
+}
+.browseImg{
+	cursor: pointer;
+	width: 60px;
+	outline: none;
+	padding: 0px 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+	margin-right: auto;
+    border: 2px solid #4dc47d;
+    color: #ffffff;
+    font-size: 0.9em;
+    background: #4dc47d;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.RegisterInfo{
+	clear: both;
+}
+#name,#password{
+	width: 150px;
+	float: right;
+}
+#name{
+	margin-left: 40px;
+}
+#password{
+	margin-left: 10px;
+}
+.radioGroup{
+	display: inline-flex;
+	display: -webkit-inline-flex;
+	margin-left: 65px;
+}
+.radioGroup p,#radioGroup input{
+	float: left;
+	width: 30px;
+	padding: 0;
+}
+.radioGroup label{
+	margin: 0 5px;
+}
+.InfoCenter h4{
+	width: 120px;
+}
+.InfoCenter p{
+	width: 180px;
+	height: 25px;
+	color: coral;
+}
+.uploadfile{
+	width: 400px;
+}
+.uploadfile input{
+	width: 150px;
+	float: left;
+}
+.uploadfile h4{
+	width: 190px;
+}
+#filename{
+	margin-left: 5px;
+}
+.valueBox{
+	width: 400px;
+	display: inline-flex;
+	display: -webkit-inline-flex;
+	align-items: center;
+	-webkit-align-items: center;
+}
+.img-upload{
+	margin-left: 10px;
+}
+#list1{
+	text-align: center;
+}
+div.add{
+	width: 45px;
+	position: absolute;
+	margin-top: 10px;
+	margin-left: -41px;
+}
+div.add:hover{
+	cursor: pointer;
+	color: #4dc47d;
+	background: white;
+	border: #4dc47d 1px solid;
+}
+div.annBox{
+	width: 400px;
+	text-align: center;
+}
+div.rowBox{
+	width: 400px;
+	display: inline-flex;
+	display: -webkit-inline-flex;
+	align-items: center;
+	-webkit-align-items: center;
+	text-align: center;
+	position: relative;
+}
+div.rowBox h4,div.rowBox p,div.rowBox input,div.rowBox textarea{
+	margin: 10px 10px;
+    text-decoration: none;
+    font-family: 'Ubuntu-Medium';
+    text-align: center;
+}
+h4.narrow,div.rowBox p,div.rowBox input{
+	width: 100px;
+}
+div.rowBox textarea,h4.wide{
+	width: 300px;
+}
+div.rowBox textarea{
+	border: 1px solid #cccccc;
+}
+div.rowBox h4{
+	color: #4dc47d;
+}
+div.rowBox p, div.rowBox input, div.rowBox textarea{
+	color: coral;
+}
+div.rowBox input{
+	height: 50px;
+}
+img.menuImg{
+	width: 50%;
+}
+img.menuImg:hover{
+	cursor: pointer;
+}
+div.libox{
+	width: 100%;
+	display: flex;
+	float: left;
+	display: -webkit-flex;
+	align-items: flex-end;
+	-webkit-align-items: flex-end;
+}
+div.libox :hover{
+	cursor: pointer;
+}
+#cName,#aTotal{
+	text-align: center;
+}
+div.attetion{
+	width: 250px;
+	margin: 0 auto;
+}
+div.list-menu{
+	width:150px;
+	height: 2em;
+	background: #FFFFFF;
+	text-align: center;
+	border: #00CC80 1px solid;
+	display: flex;
+	display: -webkit-flex;
+	align-items: flex-start;
+	position: relative;
+	float: left;
+	margin-left: -60px;
+}
+div.list-menu p{
+	margin-left: 40px;
+}
+span.triangle{
+	width: 0;
+	height: 0;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	border-top: 1em solid #00cc80;
+	border-right: 0.7em solid transparent;
+	border-left: 0.7em solid transparent;
+	cursor: pointer;
+	z-index: 7;
+}
+ul.list{
+	position: absolute;
+	left: -2px;
+	width: 124px;
+	height: 10em;
+	margin: 0 auto;
+	list-style: none;
+	z-index: 6;
+}
+ul.list :hover{
+	background: #00CC80;
+	color: #FFFFFF;
+}
+ul.list :first-child{
+	background: none;
+}
+ul.list li{
+	padding: 4px 2px;
+	border-right:solid 2px #00CC80;
+	border-left:solid 2px #00CC80;
+	cursor: pointer;
+	background: white;
+}
+ul.list li : hover{
+	color: #00CC80;
+}
+ul.list li:last-child{
+	border-bottom: solid 2px #00CC80;
+}
+

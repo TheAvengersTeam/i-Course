@@ -1,0 +1,367 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script src="js/Chart.js"></script>
+<script src="js/jquery.min.js"></script>   
+<script src="jQueryAssets/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="jQueryAssets/jquery-ui-1.9.2.datepicker.custom.min.js" type="text/javascript"></script>
+<script src="jQueryAssets/jquery-ui-1.9.2.button.custom.min.js" type="text/javascript"></script>
+<script>
+// initialize isClick, whether button is clicked?
+isClick=false;
+////data for polar area!!!
+var polarData;
+var t_data=[];
+var tDay_data=[];
+var tWeek_data=[];
+var tMonth_data=[];
+function setPolarData_day(){
+	for(i=0;i<40;i++)
+		tDay_data[i]=i+30;
+	}
+function setPolarData_week(){
+	for(i=0;i<5;i++)
+		tWeek_data[i]=i+40;
+	}
+function setPolarData_month(){
+	for(i=0;i<30;i++)
+		tMonth_data[i]=i+20;
+	}
+function selectpolar(){
+	 var courseName=window.parent.document.getElementById('center').name; 
+	 
+ switch(courseName){
+	 case"1hi": 	t_data=tDay_data;setPolarData_day();break;
+	 case"2hi": 	t_data=tWeek_data;setPolarData_week();break;
+	 case"3hi": t_data=tMonth_data;setPolarData_month();break;
+	 default: 		t_data=tDay_data;setPolarData_day();break;
+	 }
+}
+function setpolarData(){
+	selectpolar();
+ 	polarData = [
+				{
+					value: t_data[0],
+					color:"#FF4500",
+					highlight:"#FF6347",
+					label: "危险"
+				},
+				{
+					value: t_data[1],
+					color: "#F7464A",
+					highlight:"#FF5A5E",
+					label: "较高"
+				},
+				{
+					value: t_data[2],
+					color: "#FDB45C",
+					highlight: "#FFC870",
+					label: "良好"
+				},
+				{
+					value: t_data[3],
+					color: "#7CCD7C",
+					highlight: "#90EE90",
+					label: "正常"
+				},
+				{
+					value: t_data[4],
+					color: "#9ACD32",
+					highlight: "#B3EE3A",
+					label: "平缓"
+				}
+
+			];
+	}
+// method for polar area!
+function createPolarElem(){
+		var obj=document.createElement("div");
+		obj.setAttribute('id','canvas-holder');
+		obj.style.width='30%';
+		document.body.appendChild(obj);
+		var canva=document.createElement("canvas");
+		canva.setAttribute('id','chart-area');
+		canva.width=300;
+		canva.height=300;
+		obj.appendChild(canva);
+}
+function loadPolar(){
+		  var ctx = document.getElementById("chart-area").getContext("2d");
+		  window.myPolarArea = new Chart(ctx).PolarArea(polarData, {
+			  responsive:true
+		  });
+}
+function DrawPolar(){
+	isClick=true;
+	removeElement();
+	createPolarElem();
+	setpolarData();
+	loadPolar();
+	}
+</script>
+<script>
+    Chart.defaults.global.pointHitDetectionRadius = 1;
+    function tooltipTest (tooltip) {
+
+        var tooltipEl = $('#chartjs-tooltip');
+        if (!tooltip) {
+            tooltipEl.css({
+                opacity: 0
+            });
+            return;
+        }
+
+        tooltipEl.removeClass('above below');
+        tooltipEl.addClass(tooltip.yAlign);
+
+        var innerHtml = '';
+        for (var i = tooltip.labels.length - 1; i >= 0; i--) {
+        	innerHtml += [
+        		'<div class="chartjs-tooltip-section">',
+        		'	<span class="chartjs-tooltip-key" style="background-color:' + tooltip.legendColors[i].fill + '"></span>',
+        		'	<span class="chartjs-tooltip-value">' + tooltip.labels[i] + '</span>',
+        		'</div>'
+        	].join('');
+        }
+        tooltipEl.html(innerHtml);
+		
+        tooltipEl.css({
+            opacity: 1,
+            left: tooltip.chart.canvas.offsetLeft + tooltip.x + 'px',
+            top: tooltip.chart.canvas.offsetTop + tooltip.y + 'px',
+            fontFamily: tooltip.fontFamily,
+            fontSize: tooltip.fontSize,
+            fontStyle: tooltip.fontStyle,
+        });       
+    };
+    var randomScalingFactor = function() {
+        return Math.round(Math.random() * 100);
+    };
+	 var date_day=[];/// daily data;
+	 var data_day=[];
+	 for(i=0;i<40;i++){
+	 	date_day[i]=i+1;
+		data_day[i]=randomScalingFactor();
+	 }
+	 var date_week=[];/// weekly data;
+	 var data_week=[];
+	 for(i=0;i<5;i++){
+	 	date_week[i]=i+1;
+		data_week[i]=randomScalingFactor();
+	 }
+	 
+	 var date_month=[];/// monthly data;
+	 var data_month=[];
+	 for(i=0;i<30;i++){
+	 	date_month[i]=i+1;
+		data_month[i]=randomScalingFactor();
+	 }
+	 var date=[];
+	 var data=[];
+	 var lineData;
+	function selector(){
+	 var courseName=window.parent.document.getElementById('center').name; 
+	 var course={
+			name:"",
+			total:0,
+			length:0,
+			data:[],
+			partEndTime:[],
+			getInfo:function(){
+				course.name=courseName;
+				course.total=3;
+				course.length=33;
+				for(var i=0;i<course.total;i++){
+					course.partEndTime[i]=i*11;
+					course.data[i]=randomScalingFactor();
+				}
+				data=course.data;
+				t_data=course.data;
+				date=course.partEndTime;
+			}
+		};
+	 course.getInfo();
+	}
+	
+	function setData(){
+	  selector();
+	  lineData = {//data for the heart Beat on daliy basis.
+        labels: date,
+        datasets: [{
+            label: "My First dataset",
+            fillColor: "rgba(82,139,139,0)",
+            strokeColor: "rgba(82,139,139,1)",
+            pointColor: "rgba(82,139,139,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(82,139,139,1)",
+            data: data
+		 }]
+    };
+}
+	//////////////////////////////////create the linear graph
+function CreateElemDBC(){
+	///create div && canvas;
+		var obj=document.createElement("div");
+		obj.setAttribute('id','canvas-holder2');
+		document.body.appendChild(obj);
+		var canva=document.createElement("canvas");
+		canva.setAttribute('id','chart1');
+		canva.style.height=900;
+		canva.style.width=900;	
+		canva.style.marginLeft="20%";
+		canva.style.marginRight="50%";
+		canva.style.marginBottom="30px";
+		obj.appendChild(canva);
+		var tool=document.createElement("div");
+		tool.setAttribute('id','chartjs-tooltip');
+		document.body.appendChild(tool);
+		Chart.defaults.global.customTooltips = tooltipTest(); //for tooltipTest();
+		
+}
+function linearGraph(){
+		 var ctx1 = document.getElementById('chart1').getContext("2d"); 		// basic information
+		 window.myLine = new Chart(ctx1).Line(lineData ,{responsive: true});//myline 
+}
+function removeElement(){
+	var frame=document.getElementById('bubbleFrame');
+	var obj=document.getElementById('canvas-holder2');
+	var canva=document.getElementById('chart1');
+	var tool=document.getElementById('chartjs-tooltip');
+	var polar=document.getElementById('canvas-holder');
+	if(obj){
+	document.body.removeChild(obj);
+	document.body.removeChild(tool);
+	}
+	if(frame)
+		document.body.removeChild(frame);
+	if(polar)
+		document.body.removeChild(polar);
+}
+function defaultShow(){
+	if(isClick==false){	 
+		removeElement();
+		CreateElemDBC();
+		setData();
+		linearGraph();
+		}
+}
+function DrawlinearGraph(){
+		isClick=true;
+		removeElement();
+		CreateElemDBC();
+		setData();
+		linearGraph();
+	}
+function getSelectTime(selectedDate){
+	var date=selectedDate;
+	var str=date.split("/");
+	alert(str[0]+str[1]+str[2]);   //str0 month,str1 day(01,02...) , str2 year(2015)
+	}
+function showBubble(){
+	isClick=true;
+	removeElement();
+	var frame=document.createElement("iframe");
+	frame.setAttribute('id','bubbleFrame');
+	frame.src='bubble.html';
+	document.body.appendChild(frame);
+	}
+</script>
+
+<style>
+	#canvas-holder{
+		width: 50%;
+	margin-top: 20px;
+	margin-right: 25%;
+	margin-left:30%;
+	min-width:45%;
+	min-height:45%;
+	max-height:60%;
+	max-width:60%;
+	display:block;
+		}
+	#bubbleFrame{
+		border:0;
+		width: 50%;
+	margin-top: 10px;
+	margin-right: 25%;
+	min-width:80%;
+	min-height:500px;
+	max-height:80%;
+	display:block;
+	margin-left:15%;
+		}
+    #canvas-holder1 {
+        width: 300px;
+        margin: 20px auto;
+    }
+    #canvas-holder2 {
+	width: 50%;
+	margin-top: 20px;
+	margin-right: 25%;
+	min-width:80%;
+	min-height:80%;
+	max-height:80%;
+	max-height:20%;
+	display:block;
+    }
+    #chartjs-tooltip {
+        opacity: 1;
+        position: absolute;
+        background: rgba(0, 0, 0, .7);
+        color: white;
+        padding: 3px;
+        border-radius: 3px;
+        -webkit-transition: all .1s ease;
+        transition: all .1s ease;
+        pointer-events: none;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+   	.chartjs-tooltip-key{
+   		display:inline-block;
+   		width:10px;
+   		height:10px;
+   	}
+    </style>
+    <style type="text/css">
+        canvas {
+        }
+    </style>
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.datepicker.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onLoad="defaultShow();" >
+<label>
+      <input type="radio" name="RadioGroup1" value="linearGraph" id="linearGraph" onClick="DrawlinearGraph();">
+      线性图</label>
+<label>
+      <input type="radio" name="RadioGroup1" value="bubbleGraph" id="bubbleGraph" onClick="showBubble();">
+      点状图</label>
+<label>
+      <input type="radio" name="RadioGroup1" value="bubbleGraph" id="bubbleGraph" onClick="DrawPolar();">
+      极地区域图</label>
+<input type="text" id="Datepicker1">
+<script type="text/javascript">
+$(function() {
+	$( "#Datepicker1" ).datepicker({
+			maxDate: "+1m",
+			//dateFormat: 'yy年mm月dd日',
+			changeYear: false, 
+			//closeText:"close",
+			onSelect: function(selectedDate){
+				getSelectTime(selectedDate);
+				}
+		}); 
+});
+$(function() {
+	$( "#RadioButtons1" ).buttonset(); 
+});
+</script>
+</body>
+</html>

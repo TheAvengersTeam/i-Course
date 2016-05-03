@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5-Video-Player</title>
+    <!-- Tooltip classes -->
+	<link rel="stylesheet" href="images/tip-twitter/tip-twitter.css" type="text/css" />
+	<!-- jQuery and the Poshy Tip plugin files -->
+	<script type="text/javascript" src="jQueryAssets/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="jQueryAssets/jquery.poshytip.js"></script>
+    <!-- Setup examples on this page -->
+	
+    <style type="text/css">
+        .videoPlayer{
+            border: 1px solid #000;
+            width: 600px;
+        }
+        #video{
+            margin-top: 0px;
+        }
+        #videoControls{
+            width: 600px;
+            margin-top: 0px;
+        }
+        .show{
+            opacity: 1;
+        }
+        .hide{
+            opacity: 0;
+        }
+        #progressWrap{
+            background-color: black;
+            height: 40px;
+            cursor: pointer;
+        }
+        #playProgress{
+            background-color: red;
+            width: 0px;
+            height: 25px;
+            border-right: 2px solid blue;
+        }
+        #showProgress{
+            background-color: ;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 25px;
+        }    
+		#preview{
+			background-color: blue;
+			cursor: pointer;
+			height: 10px;
+			position:relative;
+		}
+    </style>
+</head>
+<body>        
+	<p id="time"></p>
+    <p id="timer"></p>
+    <p id="sectionResult"></p>                 
+    <div class="" id="part1">
+        <h1>HTML5_Video_Player</h1>
+        <div class="videoPlayer" id="videoContainer">
+            <video id="video"  width="600" height="360"  preload controls>
+                <source src="video/trailer_test.mp4" type='video/mp4'>
+                <source src="video/trailer_test.ogg" type='video/ogg'>
+            </video>
+            <div id="videoControls"> 
+                <div id="progressWrap">  
+					<div id="preview">     
+                    </div>
+                    <div id="playProgress">
+                    	<span id="showProgress">67.9%</span>
+                    </div>
+                </div>
+                <div>
+                    <button id="playBtn" title="Play"> 播放 </button> 
+                    <button id="fullScreenBtn" title="FullScreen Toggle">  全屏 </button>  
+					<button id="noteBook" >noteBook</button>        
+                    <button id="analysis" >analysis</button>       
+                </div> 
+            </div> 
+        </div>
+    </div>
+<span style="color: #F1A8A9"></span>
+<p id="timeForNow"></p>
+<p id="analysisResult"></p>
+<p id="result"></p>
+<p id="noteContent"></p>
+<p id="counter"></p>
+
+<script type="text/javascript" src="supporter.js"></script>
+</body>
+</html>
